@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>码农纪英的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="码农纪英的博客">
+<meta property="og:url" content="https://jiyingcao.github.io/index.html">
+<meta property="og:site_name" content="码农纪英的博客">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Jiying Cao">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="码农纪英的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">码农纪英的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jiyingcao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-hexo-github-in-practice" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/15/hexo-github-in-practice/" class="article-date">
+  <time datetime="2020-02-14T18:20:43.000Z" itemprop="datePublished">2020-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/15/hexo-github-in-practice/">Hexo + GitHub Pages踩坑之旅</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="〇、Node-js安装之坑"><a href="#〇、Node-js安装之坑" class="headerlink" title="〇、Node.js安装之坑"></a>〇、Node.js安装之坑</h2><p>操作系统是Ubuntu 19.10。一开始我通过<a href="https://github.com/nodesource/distributions" target="_blank" rel="noopener">NodeSource</a>安装了Node.js，执行<code>npm install -g hexo-cli</code>之后提示权限不足：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">npm WARN checkPermissions Missing write access to &#x2F;usr&#x2F;lib&#x2F;node_modules</span><br><span class="line">npm ERR! code EACCES</span><br><span class="line">npm ERR! syscall access</span><br><span class="line">npm ERR! path &#x2F;usr&#x2F;lib&#x2F;node_modules</span><br><span class="line">npm ERR! errno -13</span><br><span class="line">npm ERR! Error: EACCES: permission denied, access &#39;&#x2F;usr&#x2F;lib&#x2F;node_modules&#39;</span><br><span class="line">npm ERR!  [Error: EACCES: permission denied, access &#39;&#x2F;usr&#x2F;lib&#x2F;node_modules&#39;] &#123;</span><br><span class="line">npm ERR!   stack: &quot;Error: EACCES: permission denied, access &#39;&#x2F;usr&#x2F;lib&#x2F;node_modules&#39;&quot;,</span><br><span class="line">npm ERR!   errno: -13,</span><br><span class="line">npm ERR!   code: &#39;EACCES&#39;,</span><br><span class="line">npm ERR!   syscall: &#39;access&#39;,</span><br><span class="line">npm ERR!   path: &#39;&#x2F;usr&#x2F;lib&#x2F;node_modules&#39;</span><br><span class="line">npm ERR! &#125;</span><br><span class="line">npm ERR! </span><br><span class="line">npm ERR! The operation was rejected by your operating system.</span><br><span class="line">npm ERR! It is likely you do not have the permissions to access this file as the current user</span><br><span class="line">npm ERR! </span><br><span class="line">npm ERR! If you believe this might be a permissions issue, please double-check the</span><br><span class="line">npm ERR! permissions of the file and its containing directories, or try running</span><br><span class="line">npm ERR! the command again as root&#x2F;Administrator.</span><br></pre></td></tr></table></figure>
+
+<p><code>/usr/lib/node_modules</code>目录没有写权限，这也不奇怪；Hexo的<a href="https://hexo.io/docs/" target="_blank" rel="noopener">文档</a><strong>强烈不建议</strong>用<code>sudo</code>或是root用户权限解决问题，给出的<a href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally" target="_blank" rel="noopener">方案</a>是用版本管理软件（Node version manager）安装Node.js。我选的是<a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">nvm</a>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># nvm的安装脚本，本文最新版本为0.35.2</span><br><span class="line">curl -o- https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;nvm-sh&#x2F;nvm&#x2F;v0.35.2&#x2F;install.sh | bash</span><br><span class="line"></span><br><span class="line"># 安装成功会输出&quot;nvm&quot;，否则提示&quot;nvm: command not found&quot;</span><br><span class="line"># 这里&quot;which nvm&quot;命令无效，因为&quot;nvm.sh&quot;是个shell脚本，而不是可执行二进制文件</span><br><span class="line">command -v nvm</span><br><span class="line"></span><br><span class="line"># 本文写作时的最新Node LTS版本为12.16.0，如需安装最新版执行&quot;nvm install node&quot;即可</span><br><span class="line">nvm install 12.16.0</span><br></pre></td></tr></table></figure>
+
+<p>这样Node.js的安装位置是<code>~/.nvm/versions/node/v12.16.0/</code>，成功避免了<code>EACCES</code>权限问题。</p>
+<blockquote>
+<p>npm下载依赖包很慢，建议配置国内镜像。可以安装<a href="https://www.npmjs.com/package/nrm" target="_blank" rel="noopener">nrm</a>，<code>nrm use taobao</code>切换到淘宝NPM镜像。感谢@<a href="https://juejin.im/post/5b91e8455188255c451e893f" target="_blank" rel="noopener">夜雨随风</a></p>
+</blockquote>
+<h2 id="一、GitHub-Pages之坑"><a href="#一、GitHub-Pages之坑" class="headerlink" title="一、GitHub Pages之坑"></a>一、GitHub Pages之坑</h2><p>我在GitHub上创建了名为<code>jiyingcao.github.io</code>的Repository，通过<a href="https://jiyingcao.github.io">https://jiyingcao.github.io</a> 访问博客。需要把源代码，也就是MarkDown等文件等也都保存到这个Repository。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jiyingcao.github.io/2020/02/15/hexo-github-in-practice/" data-id="ckbnrop7j00015ox91uancze5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-rfsc-aosp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/16/rfsc-aosp/" class="article-date">
+  <time datetime="2019-06-16T04:36:40.000Z" itemprop="datePublished">2019-06-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/16/rfsc-aosp/">阅读AOSP源代码的正确姿势</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>“Read the Fucking Source Code”<br>— Linus Torvalds</p>
+</blockquote>
+<p>“去读那XX的源代码”——Linus大神的至理名言，如雷贯耳，振聋发聩。</p>
+<p>大神用语一向粗鄙。然而他足够伟大，伟大到粗鄙都成了他伟大的注脚。</p>
+<p>普通人自然是没有资本粗鄙起来。当AOSP源码如山般横亘在面前时，我感觉自己化身成了愚公，手里只有一把铁锹。</p>
+<p>好在有无数先行的愚公已经铲出了一条条羊肠小道——相比较我自己的愚鲁与懈怠，先行者们明明已经不是愚公，而是智叟了（此处褒义）。</p>
+<p>源码该怎么读？对于AOSP这种太行王屋级别的工程，其入门之艰辛，远不是一句“万事开头难”就能形容的。云山雾罩，分分钟让人想起那套畅销书《从入门到放弃》（误）。</p>
+<p>最务实的目标，反而是选择最容易的突破口，让自己不那么容易放弃。拿起铁锹，选择最平坦的羊肠小道，边走边挖。</p>
+<p>对于大多数普通的Android程序员来说，对Java的掌握程度远远超过C/C++，对Android Studio的得心应手也远远凌驾于Source Insight之辈。我们从Java层开始，用Android Studio阅读。</p>
+<h1 id="Hello-Java-World"><a href="#Hello-Java-World" class="headerlink" title="Hello, (Java) World!"></a>Hello, (Java) World!</h1><p>AOPS运行的第一个Java程序是<code>Zygote</code>。熟悉Java的程序员，都知道Java程序从启动类的<code>main()</code>方法开始执行。我们只要从<code>Zygote</code>的启动类开始，从<code>main()</code>方法开始，就是阅读AOSP源码的入门姿势了。</p>
+<h1 id="“Zygote”—受精卵"><a href="#“Zygote”—受精卵" class="headerlink" title="“Zygote”—受精卵"></a>“Zygote”—受精卵</h1><blockquote>
+<p>“There are only two hard things in Computer Science: cache invalidation and naming things.”<br>— Phil Karlton</p>
+</blockquote>
+<p>作为计算机领域两大难题之一，命名，往往能起到正向或者反向的效果。所幸AOSP源码里的命名还是比较明白易懂的，没有某些人写代码那么天马行空 : )</p>
+<blockquote>
+<p><strong>Zygote</strong> is an Android system service that is the parent of all Android application processes.</p>
+</blockquote>
+<p>维基百科说，Zygote是所有Android应用进程的父进程（parent）。</p>
+<p>zygote不是一个常用的单词，它的意思是受精卵。生物的所有细胞，都是由受精卵分裂而来；Android世界的每一个进程，都是由<code>Zygote</code>进程创建而来，这就是它被命名为”Zygote”的原因吧。</p>
+<p>现在，请记得<code>Zygote</code>的终极使命：创建所有Android应用进程。它的无数行源代码，可能让你头晕眼花，但一定要记得，所有的代码都是为了这个终极使命：创建Android应用进程。</p>
+<h1 id="ZygoteInit-java—启动类"><a href="#ZygoteInit-java—启动类" class="headerlink" title="ZygoteInit.java—启动类"></a>ZygoteInit.java—启动类</h1><p>前面说了，<code>Zygote</code>是个Java程序，而Java程序的入口是某个类（启动类）的<code>main()</code>方法。对于<code>Zygote</code>来说，启动类是<code>ZygoteInit</code>，完整路径是frameworks/base/core/java/com/android/internal/os/ZygoteInit.java</p>
+<p>记不住也没关系，这就是为什么要用趁手的工具，Android Studio。Ctrl+N，输入“ZygoteInit”，就能找到并打开了：</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jiyingcao.github.io/2019/06/16/rfsc-aosp/" data-id="ckbnrop8700055ox98c93he2j" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOSP/" rel="tag">AOSP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-osi-model" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/11/osi-model/" class="article-date">
+  <time datetime="2019-06-11T01:10:49.000Z" itemprop="datePublished">2019-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/11/osi-model/">网络协议模型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Google搜“OSI Model vs TCP/IP Model”，有大量的图片示例。随便截取几张：<br><img src="https://upload-images.jianshu.io/upload_images/13318826-44d0d890a29d9199.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="https://techdifferences.com/wp-content/uploads/2016/03/Untitled-1.jpg"><br><img src="https://upload-images.jianshu.io/upload_images/13318826-3a2a98550c7596bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="http://fiberbit.com.tw/wp-content/uploads/2013/12/TCP-IP-model-vs-OSI-model.png"><br><img src="https://upload-images.jianshu.io/upload_images/13318826-885d06908f391867.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="https://www.computernetworkingnotes.org/images/cisco/ccna-study-guide/csg23-01-compare-osi-model-and-tcp-ip-model.png"><br><img src="https://upload-images.jianshu.io/upload_images/13318826-f5a9d5ec818920c3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="https://www.stemjar.com/wp-content/uploads/2017/12/OSI-vs-TCP-IP-model-What-is-the-difference.jpg
+"></p>
+<h1 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h1><p>OSI模型是一个标准而不是实现，走的是学院派路子。搜“osi model mnemonic”能搜到很多助记词，有兴趣的可以点击底部的链接查看。</p>
+<blockquote>
+<p><strong>All People Seem To Need Data Processing</strong></p>
+</blockquote>
+<p>当然我最喜欢这一句：</p>
+<blockquote>
+<p><strong>Please Do Not Touch Sally’s Pretty Ass</strong></p>
+</blockquote>
+<p>就不翻译了，自己意会吧 :)</p>
+<h1 id="TCP-IP模型"><a href="#TCP-IP模型" class="headerlink" title="TCP/IP模型"></a>TCP/IP模型</h1><p>TCP/IP四层模型用在开发中，是实际意义上的网络协议模型。这里英文名以维基百科的用词为准，中文名以谢希仁《计算机网络》为准：</p>
+<ul>
+<li>Application layer（应用层）</li>
+<li>Transport layer（运输层）</li>
+<li>Internet layer（网络层）</li>
+<li>Link layer （网络接口层？）</li>
+</ul>
+<p>应用层对应OSI的应用、表示、会话层，网络接口层对应OSI的数据链路层和物理层。网络层包括IP协议，运输层包括了TCP、UDP协议。</p>
+<h1 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h1><p>TCP/IP模型也有五层的划分方法，将网络接口层拆分为数据链路层和物理层，对应OSI的底部两层。《计算机网络》就是这种划分。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://adminhacks.com/osi-mnemonic.html" target="_blank" rel="noopener">OSI Layer Mnemonic</a><br><a href="https://en.wikipedia.org/wiki/Internet_protocol_suite#Key_architectural_principles" target="_blank" rel="noopener">Internet protocol suite</a><br>《计算机网络》（第7版）- 谢希仁 著<br><a href="[https://juejin.im/post/59a0472f5188251240632f92](https://juejin.im/post/59a0472f5188251240632f92)">网络七层模型与四层模型区别</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jiyingcao.github.io/2019/06/11/osi-model/" data-id="ckbnrop7w00035ox98dg25rjs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux-desktop" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/08/linux-desktop/" class="article-date">
+  <time datetime="2019-06-08T10:25:46.000Z" itemprop="datePublished">2019-06-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/08/linux-desktop/">Linux桌面环境之我见</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近为了下载阅读编译AOSP源码，主要在Linux操作系统上玩操作。发行版用的是最容易上手的Ubuntu，安装软件方便，出现问题在网上也能很容易搜到答案。不得不说现在Linux比大学时候好用多了。但是桌面环境这块，Gnome 3并没有比以前的Gnome 2感觉好用。主要是吧，它借鉴的Unity风格实在是太难用了。最不满意的有两点，结合图片说：</p>
+<img src="/2019/06/08/linux-desktop/13318826-d934ac9675fa60a9.jpeg" class="">
+<ol>
+<li>最左侧的竖着一栏，把“常用”的应用纵向排布，无论打开什么窗口都不会被覆盖。很宽，很浪费面积。</li>
+</ol>
+<img src="/2019/06/08/linux-desktop/13318826-77f9f1e1c0d543eb.png" class="">
+<ol start="2">
+<li>如果要打开的程序不在常用程序里呢？点击左下角的9点香疤（原谅我给它起这么个名字），大概相当于Windows的开始菜单吧。然后程序列表就占满了屏幕；如此大的面积，居然没能显示几个程序，稍微多一点，居然还要翻页？</li>
+</ol>
+<p>熟悉Mac OS X的朋友会心一笑，这不是借鉴我们的吗：</p>
+<img src="/2019/06/08/linux-desktop/13318826-649bb22f1b2aebd8.jpg" class="">
+
+<p>从Unity时代开始，Ubuntu就走上了这条不归路。理由其实情有可原：触控屏的普及，让他们想要在一个桌面环境同时处理键盘鼠标和手指触控的操作。</p>
+<p>Windows也有同样的想法。Windows 8引入了磁贴，甚至一度取消了开始菜单：</p>
+<img src="/2019/06/08/linux-desktop/13318826-6b65fd09271bf509.png" class="" title="Windows 8">
+
+<p>然而这么多年过去了，真正触控屏得到普及的也只有iOS和Android代表的手机/平板环境。在PC领域，普通屏幕+键盘鼠标仍然是绝对的主流。Windows 8和Ubuntu Unity引起的不适，罄竹难书。</p>
+<p>问题出在哪里呢？</p>
+<p>手指与屏幕的接触面积大，导致触控精度远远不如鼠标指针。所以触控屏时代的操作系统，把按钮做的越来越大。</p>
+<p>守旧的键鼠用户们却因此更加吃力了。本来手指和手腕微微抖动就能找到点击目标，现在不得不移动整条手臂才能把指针从屏幕右下角拖到屏幕中央了。</p>
+<p>放一张Ubuntu 9.10的图作为对比，当时使用的是Gnome 2：</p>
+<img src="/2019/06/08/linux-desktop/13318826-963f0772f4229d86.png" class="" title="This is an Ubuntu 9.10">
+
+<p>从点击左上角的菜单入口，到打开实际需要的程序，鼠标指针从未离开过屏幕左上角区域。顺便，这种悬浮而不是全屏的菜单，对正在进行的工作影响更小，没有那么强的割裂感。</p>
+<p>Ubuntu 9.10，如名所示，发布于2009年10月。啊，十年，就快要十年了。</p>
+<p>很多人不喜欢Unity和Gnome 3，Gnome 2的一部分开发者另起炉灶开发了MATE桌面环境，也渐渐出现了GNOME Session Flashback这种怀旧的兼容包。</p>
+<img src="/2019/06/08/linux-desktop/13318826-8b7c37535545cbd8.png" class="" title="GNOME Flashback (Metacity)">
+
+<p>Windows也悄悄加回了开始菜单，并且在Windows 10提供了平板模式的打开关闭按钮。Windows 10还“贴心”地给企业用户提供了一个LTSC分支（之前叫LTSB），没有平板模式，没有磁贴，没有触控应用。我大概从三四年前开始用到现在，认为是目前的最佳选择。【至于Windows 8，被我认为是最难用的桌面环境，没有之一。】</p>
+<p>Linux的桌面环境百花齐放，是坏事也是好事。经过虚拟机试用过MATE、LXDE、Cinnamon等等一众桌面环境（系统是Ubuntu和Linux Mint）之后，我最终投奔了Xfce。看起来平平无奇，胜在简捷方便。</p>
+<img src="/2019/06/08/linux-desktop/13318826-84bb723817a46720.png" class="" title="Xubuntu 18.04.2">
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jiyingcao.github.io/2019/06/08/linux-desktop/" data-id="ckbnrop7p00025ox9945k0uvj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-shadowsocks-ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/07/shadowsocks-ubuntu/" class="article-date">
+  <time datetime="2019-06-07T06:28:31.000Z" itemprop="datePublished">2019-06-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/07/shadowsocks-ubuntu/">Ubuntu使用Shadowsocks科学上网</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>我用的Shadowsocks是购买的<a href="https://justmysocks.net/" target="_blank" rel="noopener">Just My Socks</a>，日常用基本称得上稳定快速。老生常谈了，如果你对科学上网有刚需，老老实实付费，在网上找免费的基本是浪费时间。</p>
+<p>Ubuntu版本是<a href="http://releases.ubuntu.com/19.04/ubuntu-19.04-desktop-amd64.iso.torrent" target="_blank" rel="noopener">19.04 Desktop (64-bit)</a>，虚拟机安装。如果作为主力操作系统，请安装<a href="https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes" target="_blank" rel="noopener">LTS版本</a>。</p>
+<h1 id="安装Shadowsocks"><a href="#安装Shadowsocks" class="headerlink" title="安装Shadowsocks"></a>安装Shadowsocks</h1><p>安装很简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+
+<p>如果提示<code>pip</code>命令找不到，先安装<code>python-pip</code>（我使用的是Python 2.7）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python-pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置Shadowsocks"><a href="#配置Shadowsocks" class="headerlink" title="配置Shadowsocks"></a>配置Shadowsocks</h1><p>安装完成后可以通过<code>sslocal</code>命令启动Shadowsocks了。不过我们需要先将Shadowsocks服务器地址、端口、加密方式、密码等信息填写到配置文件里。现在<code>/etc/shadowsocks</code>目录下应该有<code>config.json.example</code>文件了：</p>
+<img src="/2019/06/07/shadowsocks-ubuntu/13318826-4d3791f5962c21c9.png" class="" title="&#x2F;etc&#x2F;shadowsocks">
+
+<p>复制并重命名文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;etc&#x2F;shadowsocks&#x2F;config.json.example &#x2F;etc&#x2F;shadowsocks&#x2F;config.json</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>config.json</code>文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;shadowsocks&#x2F;config.json</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/06/07/shadowsocks-ubuntu/13318826-4d3a6b541658b6c8.png" class="" title="config.json">
+
+<p>修改以下几行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;server&quot;: &quot;你的server地址&quot;,</span><br><span class="line">&quot;server_port&quot;: 你的server端口,</span><br><span class="line">&quot;password&quot;: &quot;你的密码&quot;,</span><br><span class="line">&quot;local_address&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">&quot;local_port&quot;: 1080,</span><br><span class="line">&quot;method&quot;: &quot;你的server指定的加密方法，通常是aes-256-cfb&quot;</span><br></pre></td></tr></table></figure>
+
+<p>我的机器上还需要删除<code>&quot;libopenssl&quot;:&quot;C:\\Program Files\\Git\\mingw64\\bin\\libeay32.dll&quot;,</code>一行，毕竟不是Windows系统，很好理解吧。修改完成后保存，退出文本编辑器（我这里是<code>gedit</code>）。</p>
+<h1 id="启动Shadowsocks"><a href="#启动Shadowsocks" class="headerlink" title="启动Shadowsocks"></a>启动Shadowsocks</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sslocal -c &#x2F;etc&#x2F;shadowsocks&#x2F;config.json</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/06/07/shadowsocks-ubuntu/13318826-124c7ba20509ff85.png" class="" title="Terminal - sslocal">
+
+<h1 id="检验成果"><a href="#检验成果" class="headerlink" title="检验成果"></a>检验成果</h1><p>只差一步了。设置浏览器代理，类型SOCKS v5，SOCKS主机127.0.0.1，端口1080：</p>
+<img src="/2019/06/07/shadowsocks-ubuntu/13318826-f8c0384d8580daa2.png" class="" title="Firefox - 连接设置">
+
+<p>这时候应该就可以翻qiang了。Enjoy！</p>
+<img src="/2019/06/07/shadowsocks-ubuntu/13318826-827664dc88040838.png" class="" title="Firefox - Google主页">
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://zhoujianshi.github.io/articles/2018/Ubuntu%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8shadowsocks/index.html" target="_blank" rel="noopener">Ubuntu安装和使用shadowsocks</a><br><a href="https://blog.huihut.com/2017/08/25/LinuxInstallConfigShadowsocksClient/" target="_blank" rel="noopener">Linux安装配置Shadowsocks客户端及开机自动启动</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jiyingcao.github.io/2019/06/07/shadowsocks-ubuntu/" data-id="ckbnrop8a00065ox93p9w1jru" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOSP/" rel="tag">AOSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AOSP/" style="font-size: 10px;">AOSP</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 20px;">环境配置</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/15/hexo-github-in-practice/">Hexo + GitHub Pages踩坑之旅</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/16/rfsc-aosp/">阅读AOSP源代码的正确姿势</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/11/osi-model/">网络协议模型</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/08/linux-desktop/">Linux桌面环境之我见</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/07/shadowsocks-ubuntu/">Ubuntu使用Shadowsocks科学上网</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Jiying Cao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

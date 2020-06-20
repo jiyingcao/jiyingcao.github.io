@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>阅读AOSP源代码的正确姿势 | 码农纪英的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="“Read the Fucking Source Code”— Linus Torvalds  “去读那XX的源代码”——Linus大神的至理名言，如雷贯耳，振聋发聩。 大神用语一向粗鄙。然而他足够伟大，伟大到粗鄙都成了他伟大的注脚。 普通人自然是没有资本粗鄙起来。当AOSP源码如山般横亘在面前时，我感觉自己化身成了愚公，手里只有一把铁锹。 好在有无数先行的愚公已经铲出了一条条羊肠小道——相比较">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阅读AOSP源代码的正确姿势">
+<meta property="og:url" content="https://jiyingcao.github.io/2019/06/16/rfsc-aosp/index.html">
+<meta property="og:site_name" content="码农纪英的博客">
+<meta property="og:description" content="“Read the Fucking Source Code”— Linus Torvalds  “去读那XX的源代码”——Linus大神的至理名言，如雷贯耳，振聋发聩。 大神用语一向粗鄙。然而他足够伟大，伟大到粗鄙都成了他伟大的注脚。 普通人自然是没有资本粗鄙起来。当AOSP源码如山般横亘在面前时，我感觉自己化身成了愚公，手里只有一把铁锹。 好在有无数先行的愚公已经铲出了一条条羊肠小道——相比较">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-06-16T04:36:40.000Z">
+<meta property="article:modified_time" content="2020-06-20T14:50:02.984Z">
+<meta property="article:author" content="Jiying Cao">
+<meta property="article:tag" content="AOSP">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="码农纪英的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">码农纪英的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jiyingcao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-rfsc-aosp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/16/rfsc-aosp/" class="article-date">
+  <time datetime="2019-06-16T04:36:40.000Z" itemprop="datePublished">2019-06-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      阅读AOSP源代码的正确姿势
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>“Read the Fucking Source Code”<br>— Linus Torvalds</p>
+</blockquote>
+<p>“去读那XX的源代码”——Linus大神的至理名言，如雷贯耳，振聋发聩。</p>
+<p>大神用语一向粗鄙。然而他足够伟大，伟大到粗鄙都成了他伟大的注脚。</p>
+<p>普通人自然是没有资本粗鄙起来。当AOSP源码如山般横亘在面前时，我感觉自己化身成了愚公，手里只有一把铁锹。</p>
+<p>好在有无数先行的愚公已经铲出了一条条羊肠小道——相比较我自己的愚鲁与懈怠，先行者们明明已经不是愚公，而是智叟了（此处褒义）。</p>
+<p>源码该怎么读？对于AOSP这种太行王屋级别的工程，其入门之艰辛，远不是一句“万事开头难”就能形容的。云山雾罩，分分钟让人想起那套畅销书《从入门到放弃》（误）。</p>
+<p>最务实的目标，反而是选择最容易的突破口，让自己不那么容易放弃。拿起铁锹，选择最平坦的羊肠小道，边走边挖。</p>
+<p>对于大多数普通的Android程序员来说，对Java的掌握程度远远超过C/C++，对Android Studio的得心应手也远远凌驾于Source Insight之辈。我们从Java层开始，用Android Studio阅读。</p>
+<h1 id="Hello-Java-World"><a href="#Hello-Java-World" class="headerlink" title="Hello, (Java) World!"></a>Hello, (Java) World!</h1><p>AOPS运行的第一个Java程序是<code>Zygote</code>。熟悉Java的程序员，都知道Java程序从启动类的<code>main()</code>方法开始执行。我们只要从<code>Zygote</code>的启动类开始，从<code>main()</code>方法开始，就是阅读AOSP源码的入门姿势了。</p>
+<h1 id="“Zygote”—受精卵"><a href="#“Zygote”—受精卵" class="headerlink" title="“Zygote”—受精卵"></a>“Zygote”—受精卵</h1><blockquote>
+<p>“There are only two hard things in Computer Science: cache invalidation and naming things.”<br>— Phil Karlton</p>
+</blockquote>
+<p>作为计算机领域两大难题之一，命名，往往能起到正向或者反向的效果。所幸AOSP源码里的命名还是比较明白易懂的，没有某些人写代码那么天马行空 : )</p>
+<blockquote>
+<p><strong>Zygote</strong> is an Android system service that is the parent of all Android application processes.</p>
+</blockquote>
+<p>维基百科说，Zygote是所有Android应用进程的父进程（parent）。</p>
+<p>zygote不是一个常用的单词，它的意思是受精卵。生物的所有细胞，都是由受精卵分裂而来；Android世界的每一个进程，都是由<code>Zygote</code>进程创建而来，这就是它被命名为”Zygote”的原因吧。</p>
+<p>现在，请记得<code>Zygote</code>的终极使命：创建所有Android应用进程。它的无数行源代码，可能让你头晕眼花，但一定要记得，所有的代码都是为了这个终极使命：创建Android应用进程。</p>
+<h1 id="ZygoteInit-java—启动类"><a href="#ZygoteInit-java—启动类" class="headerlink" title="ZygoteInit.java—启动类"></a>ZygoteInit.java—启动类</h1><p>前面说了，<code>Zygote</code>是个Java程序，而Java程序的入口是某个类（启动类）的<code>main()</code>方法。对于<code>Zygote</code>来说，启动类是<code>ZygoteInit</code>，完整路径是frameworks/base/core/java/com/android/internal/os/ZygoteInit.java</p>
+<p>记不住也没关系，这就是为什么要用趁手的工具，Android Studio。Ctrl+N，输入“ZygoteInit”，就能找到并打开了：</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jiyingcao.github.io/2019/06/16/rfsc-aosp/" data-id="ckbnrop8700055ox98c93he2j" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOSP/" rel="tag">AOSP</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/02/15/hexo-github-in-practice/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hexo + GitHub Pages踩坑之旅
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/11/osi-model/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">网络协议模型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOSP/" rel="tag">AOSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AOSP/" style="font-size: 10px;">AOSP</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 20px;">环境配置</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/15/hexo-github-in-practice/">Hexo + GitHub Pages踩坑之旅</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/16/rfsc-aosp/">阅读AOSP源代码的正确姿势</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/11/osi-model/">网络协议模型</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/08/linux-desktop/">Linux桌面环境之我见</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/07/shadowsocks-ubuntu/">Ubuntu使用Shadowsocks科学上网</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Jiying Cao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

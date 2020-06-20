@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo + GitHub Pages踩坑之旅 | 码农纪英的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="〇、Node.js安装之坑操作系统是Ubuntu 19.10。一开始我通过NodeSource安装了Node.js，执行npm install -g hexo-cli之后提示权限不足： 1234567891011121314151617181920npm WARN checkPermissions Missing write access to &#x2F;usr&#x2F;lib&#x2F;no">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo + GitHub Pages踩坑之旅">
+<meta property="og:url" content="https://jiyingcao.github.io/2020/02/15/hexo-github-in-practice/index.html">
+<meta property="og:site_name" content="码农纪英的博客">
+<meta property="og:description" content="〇、Node.js安装之坑操作系统是Ubuntu 19.10。一开始我通过NodeSource安装了Node.js，执行npm install -g hexo-cli之后提示权限不足： 1234567891011121314151617181920npm WARN checkPermissions Missing write access to &#x2F;usr&#x2F;lib&#x2F;no">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-14T18:20:43.000Z">
+<meta property="article:modified_time" content="2020-06-20T14:50:02.980Z">
+<meta property="article:author" content="Jiying Cao">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="码农纪英的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">码农纪英的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jiyingcao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hexo-github-in-practice" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/15/hexo-github-in-practice/" class="article-date">
+  <time datetime="2020-02-14T18:20:43.000Z" itemprop="datePublished">2020-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo + GitHub Pages踩坑之旅
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="〇、Node-js安装之坑"><a href="#〇、Node-js安装之坑" class="headerlink" title="〇、Node.js安装之坑"></a>〇、Node.js安装之坑</h2><p>操作系统是Ubuntu 19.10。一开始我通过<a href="https://github.com/nodesource/distributions" target="_blank" rel="noopener">NodeSource</a>安装了Node.js，执行<code>npm install -g hexo-cli</code>之后提示权限不足：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">npm WARN checkPermissions Missing write access to &#x2F;usr&#x2F;lib&#x2F;node_modules</span><br><span class="line">npm ERR! code EACCES</span><br><span class="line">npm ERR! syscall access</span><br><span class="line">npm ERR! path &#x2F;usr&#x2F;lib&#x2F;node_modules</span><br><span class="line">npm ERR! errno -13</span><br><span class="line">npm ERR! Error: EACCES: permission denied, access &#39;&#x2F;usr&#x2F;lib&#x2F;node_modules&#39;</span><br><span class="line">npm ERR!  [Error: EACCES: permission denied, access &#39;&#x2F;usr&#x2F;lib&#x2F;node_modules&#39;] &#123;</span><br><span class="line">npm ERR!   stack: &quot;Error: EACCES: permission denied, access &#39;&#x2F;usr&#x2F;lib&#x2F;node_modules&#39;&quot;,</span><br><span class="line">npm ERR!   errno: -13,</span><br><span class="line">npm ERR!   code: &#39;EACCES&#39;,</span><br><span class="line">npm ERR!   syscall: &#39;access&#39;,</span><br><span class="line">npm ERR!   path: &#39;&#x2F;usr&#x2F;lib&#x2F;node_modules&#39;</span><br><span class="line">npm ERR! &#125;</span><br><span class="line">npm ERR! </span><br><span class="line">npm ERR! The operation was rejected by your operating system.</span><br><span class="line">npm ERR! It is likely you do not have the permissions to access this file as the current user</span><br><span class="line">npm ERR! </span><br><span class="line">npm ERR! If you believe this might be a permissions issue, please double-check the</span><br><span class="line">npm ERR! permissions of the file and its containing directories, or try running</span><br><span class="line">npm ERR! the command again as root&#x2F;Administrator.</span><br></pre></td></tr></table></figure>
+
+<p><code>/usr/lib/node_modules</code>目录没有写权限，这也不奇怪；Hexo的<a href="https://hexo.io/docs/" target="_blank" rel="noopener">文档</a><strong>强烈不建议</strong>用<code>sudo</code>或是root用户权限解决问题，给出的<a href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally" target="_blank" rel="noopener">方案</a>是用版本管理软件（Node version manager）安装Node.js。我选的是<a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">nvm</a>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># nvm的安装脚本，本文最新版本为0.35.2</span><br><span class="line">curl -o- https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;nvm-sh&#x2F;nvm&#x2F;v0.35.2&#x2F;install.sh | bash</span><br><span class="line"></span><br><span class="line"># 安装成功会输出&quot;nvm&quot;，否则提示&quot;nvm: command not found&quot;</span><br><span class="line"># 这里&quot;which nvm&quot;命令无效，因为&quot;nvm.sh&quot;是个shell脚本，而不是可执行二进制文件</span><br><span class="line">command -v nvm</span><br><span class="line"></span><br><span class="line"># 本文写作时的最新Node LTS版本为12.16.0，如需安装最新版执行&quot;nvm install node&quot;即可</span><br><span class="line">nvm install 12.16.0</span><br></pre></td></tr></table></figure>
+
+<p>这样Node.js的安装位置是<code>~/.nvm/versions/node/v12.16.0/</code>，成功避免了<code>EACCES</code>权限问题。</p>
+<blockquote>
+<p>npm下载依赖包很慢，建议配置国内镜像。可以安装<a href="https://www.npmjs.com/package/nrm" target="_blank" rel="noopener">nrm</a>，<code>nrm use taobao</code>切换到淘宝NPM镜像。感谢@<a href="https://juejin.im/post/5b91e8455188255c451e893f" target="_blank" rel="noopener">夜雨随风</a></p>
+</blockquote>
+<h2 id="一、GitHub-Pages之坑"><a href="#一、GitHub-Pages之坑" class="headerlink" title="一、GitHub Pages之坑"></a>一、GitHub Pages之坑</h2><p>我在GitHub上创建了名为<code>jiyingcao.github.io</code>的Repository，通过<a href="https://jiyingcao.github.io">https://jiyingcao.github.io</a> 访问博客。需要把源代码，也就是MarkDown等文件等也都保存到这个Repository。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jiyingcao.github.io/2020/02/15/hexo-github-in-practice/" data-id="ckbnrop7j00015ox91uancze5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/16/rfsc-aosp/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">阅读AOSP源代码的正确姿势</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOSP/" rel="tag">AOSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AOSP/" style="font-size: 10px;">AOSP</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 20px;">环境配置</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/15/hexo-github-in-practice/">Hexo + GitHub Pages踩坑之旅</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/16/rfsc-aosp/">阅读AOSP源代码的正确姿势</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/11/osi-model/">网络协议模型</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/08/linux-desktop/">Linux桌面环境之我见</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/07/shadowsocks-ubuntu/">Ubuntu使用Shadowsocks科学上网</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Jiying Cao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

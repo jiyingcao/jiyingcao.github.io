@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Ubuntu使用Shadowsocks科学上网 | 码农纪英的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="准备我用的Shadowsocks是购买的Just My Socks，日常用基本称得上稳定快速。老生常谈了，如果你对科学上网有刚需，老老实实付费，在网上找免费的基本是浪费时间。 Ubuntu版本是19.04 Desktop (64-bit)，虚拟机安装。如果作为主力操作系统，请安装LTS版本。 安装Shadowsocks安装很简单： 1pip install shadowsocks  如果提示pip">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu使用Shadowsocks科学上网">
+<meta property="og:url" content="https://jiyingcao.github.io/2019/06/07/shadowsocks-ubuntu/index.html">
+<meta property="og:site_name" content="码农纪英的博客">
+<meta property="og:description" content="准备我用的Shadowsocks是购买的Just My Socks，日常用基本称得上稳定快速。老生常谈了，如果你对科学上网有刚需，老老实实付费，在网上找免费的基本是浪费时间。 Ubuntu版本是19.04 Desktop (64-bit)，虚拟机安装。如果作为主力操作系统，请安装LTS版本。 安装Shadowsocks安装很简单： 1pip install shadowsocks  如果提示pip">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://jiyingcao.github.io/2019/06/07/shadowsocks-ubuntu/13318826-4d3791f5962c21c9.png">
+<meta property="og:image" content="https://jiyingcao.github.io/2019/06/07/shadowsocks-ubuntu/13318826-4d3a6b541658b6c8.png">
+<meta property="og:image" content="https://jiyingcao.github.io/2019/06/07/shadowsocks-ubuntu/13318826-124c7ba20509ff85.png">
+<meta property="og:image" content="https://jiyingcao.github.io/2019/06/07/shadowsocks-ubuntu/13318826-f8c0384d8580daa2.png">
+<meta property="og:image" content="https://jiyingcao.github.io/2019/06/07/shadowsocks-ubuntu/13318826-827664dc88040838.png">
+<meta property="article:published_time" content="2019-06-07T06:28:31.000Z">
+<meta property="article:modified_time" content="2020-06-20T14:50:02.984Z">
+<meta property="article:author" content="Jiying Cao">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="环境配置">
+<meta property="article:tag" content="科学上网">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jiyingcao.github.io/2019/06/07/shadowsocks-ubuntu/13318826-4d3791f5962c21c9.png">
+  
+    <link rel="alternate" href="/atom.xml" title="码农纪英的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">码农纪英的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jiyingcao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-shadowsocks-ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/07/shadowsocks-ubuntu/" class="article-date">
+  <time datetime="2019-06-07T06:28:31.000Z" itemprop="datePublished">2019-06-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ubuntu使用Shadowsocks科学上网
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>我用的Shadowsocks是购买的<a href="https://justmysocks.net/" target="_blank" rel="noopener">Just My Socks</a>，日常用基本称得上稳定快速。老生常谈了，如果你对科学上网有刚需，老老实实付费，在网上找免费的基本是浪费时间。</p>
+<p>Ubuntu版本是<a href="http://releases.ubuntu.com/19.04/ubuntu-19.04-desktop-amd64.iso.torrent" target="_blank" rel="noopener">19.04 Desktop (64-bit)</a>，虚拟机安装。如果作为主力操作系统，请安装<a href="https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes" target="_blank" rel="noopener">LTS版本</a>。</p>
+<h1 id="安装Shadowsocks"><a href="#安装Shadowsocks" class="headerlink" title="安装Shadowsocks"></a>安装Shadowsocks</h1><p>安装很简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+
+<p>如果提示<code>pip</code>命令找不到，先安装<code>python-pip</code>（我使用的是Python 2.7）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python-pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置Shadowsocks"><a href="#配置Shadowsocks" class="headerlink" title="配置Shadowsocks"></a>配置Shadowsocks</h1><p>安装完成后可以通过<code>sslocal</code>命令启动Shadowsocks了。不过我们需要先将Shadowsocks服务器地址、端口、加密方式、密码等信息填写到配置文件里。现在<code>/etc/shadowsocks</code>目录下应该有<code>config.json.example</code>文件了：</p>
+<img src="/2019/06/07/shadowsocks-ubuntu/13318826-4d3791f5962c21c9.png" class="" title="&#x2F;etc&#x2F;shadowsocks">
+
+<p>复制并重命名文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;etc&#x2F;shadowsocks&#x2F;config.json.example &#x2F;etc&#x2F;shadowsocks&#x2F;config.json</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>config.json</code>文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;shadowsocks&#x2F;config.json</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/06/07/shadowsocks-ubuntu/13318826-4d3a6b541658b6c8.png" class="" title="config.json">
+
+<p>修改以下几行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;server&quot;: &quot;你的server地址&quot;,</span><br><span class="line">&quot;server_port&quot;: 你的server端口,</span><br><span class="line">&quot;password&quot;: &quot;你的密码&quot;,</span><br><span class="line">&quot;local_address&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">&quot;local_port&quot;: 1080,</span><br><span class="line">&quot;method&quot;: &quot;你的server指定的加密方法，通常是aes-256-cfb&quot;</span><br></pre></td></tr></table></figure>
+
+<p>我的机器上还需要删除<code>&quot;libopenssl&quot;:&quot;C:\\Program Files\\Git\\mingw64\\bin\\libeay32.dll&quot;,</code>一行，毕竟不是Windows系统，很好理解吧。修改完成后保存，退出文本编辑器（我这里是<code>gedit</code>）。</p>
+<h1 id="启动Shadowsocks"><a href="#启动Shadowsocks" class="headerlink" title="启动Shadowsocks"></a>启动Shadowsocks</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sslocal -c &#x2F;etc&#x2F;shadowsocks&#x2F;config.json</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/06/07/shadowsocks-ubuntu/13318826-124c7ba20509ff85.png" class="" title="Terminal - sslocal">
+
+<h1 id="检验成果"><a href="#检验成果" class="headerlink" title="检验成果"></a>检验成果</h1><p>只差一步了。设置浏览器代理，类型SOCKS v5，SOCKS主机127.0.0.1，端口1080：</p>
+<img src="/2019/06/07/shadowsocks-ubuntu/13318826-f8c0384d8580daa2.png" class="" title="Firefox - 连接设置">
+
+<p>这时候应该就可以翻qiang了。Enjoy！</p>
+<img src="/2019/06/07/shadowsocks-ubuntu/13318826-827664dc88040838.png" class="" title="Firefox - Google主页">
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://zhoujianshi.github.io/articles/2018/Ubuntu%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8shadowsocks/index.html" target="_blank" rel="noopener">Ubuntu安装和使用shadowsocks</a><br><a href="https://blog.huihut.com/2017/08/25/LinuxInstallConfigShadowsocksClient/" target="_blank" rel="noopener">Linux安装配置Shadowsocks客户端及开机自动启动</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jiyingcao.github.io/2019/06/07/shadowsocks-ubuntu/" data-id="ckbnrop8a00065ox93p9w1jru" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/06/08/linux-desktop/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux桌面环境之我见
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOSP/" rel="tag">AOSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AOSP/" style="font-size: 10px;">AOSP</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 20px;">环境配置</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/15/hexo-github-in-practice/">Hexo + GitHub Pages踩坑之旅</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/16/rfsc-aosp/">阅读AOSP源代码的正确姿势</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/11/osi-model/">网络协议模型</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/08/linux-desktop/">Linux桌面环境之我见</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/07/shadowsocks-ubuntu/">Ubuntu使用Shadowsocks科学上网</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Jiying Cao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
